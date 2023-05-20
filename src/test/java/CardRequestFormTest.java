@@ -37,7 +37,7 @@ public class CardRequestFormTest {
 
     @Test
     public void shouldSendFormPositive() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Жан-Поль Бельмондо");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Пупкин");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+12345678910");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button")).click();
@@ -47,7 +47,7 @@ public class CardRequestFormTest {
 
     @Test
     public void shouldValidateName() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Nikolay");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Ivan Pupkin");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+12345678910");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button")).click();
@@ -68,8 +68,8 @@ public class CardRequestFormTest {
 
     @Test
     public void shouldValidatePhone() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Николай");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+1234");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Пупкин");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+1234567");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button")).click();
         String actual = driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText().trim();
@@ -79,7 +79,7 @@ public class CardRequestFormTest {
 
     @Test
     public void shouldNotSendWithEmptyPhone() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Николай");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button")).click();
         String actual = driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText().trim();
